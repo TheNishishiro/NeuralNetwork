@@ -37,6 +37,13 @@ NeuralNet::NeuralNet(int nOfLayers, int *nNodesInLayers)
 
 NeuralNet::~NeuralNet()
 {
+	cout << "NeuralNet destructor" << endl;
+	for (int i = 0; i < numberOfLayers; i++)
+	{
+		delete Layers[i];
+	}
+	Layers.clear();
+	Layers.shrink_to_fit();
 }
 
 void NeuralNet::SetInput(int i, double value)

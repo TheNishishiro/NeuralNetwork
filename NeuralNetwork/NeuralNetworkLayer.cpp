@@ -17,6 +17,24 @@ NeuralNetworkLayer::NeuralNetworkLayer()
 
 NeuralNetworkLayer::~NeuralNetworkLayer()
 {
+	cout << "NeuralNetworkLayer destructor" << endl;
+	if (ChildLayer != NULL)
+	{
+		for (int i = 0; i < NumberOfNodes; i++)
+		{
+			delete[] Weights[i];
+			delete[] WeightChanges[i];
+		}
+		delete[] Weights;
+		delete[] WeightChanges;
+	}
+	delete[] NeuronValues;
+	delete[] DesiredValues;
+	delete[] Errors;
+	delete[] BiasValues;
+	delete[] BiasWeights;
+	//delete[] ParentLayer;
+	//delete[] ChildLayer;
 }
 
 void NeuralNetworkLayer::Initialize(int NumNodes, NeuralNetworkLayer *parent, NeuralNetworkLayer *child)
