@@ -33,8 +33,6 @@ NeuralNetworkLayer::~NeuralNetworkLayer()
 	delete[] Errors;
 	delete[] BiasValues;
 	delete[] BiasWeights;
-	//delete[] ParentLayer;
-	//delete[] ChildLayer;
 }
 
 void NeuralNetworkLayer::Initialize(int NumNodes, NeuralNetworkLayer *parent, NeuralNetworkLayer *child)
